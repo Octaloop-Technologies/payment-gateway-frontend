@@ -46,7 +46,7 @@ const SideBar = () => {
     {
       id: 6,
       title: "Settings",
-      link: "/setting",
+      link: "/settings",
       icon: settingIcon,
     },
 

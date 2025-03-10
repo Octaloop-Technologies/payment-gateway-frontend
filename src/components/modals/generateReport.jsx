@@ -4,8 +4,10 @@ import Textarea from "../shared/textarea";
 import RefundSuccess from "./refundSuccess";
 import CustomSelect from "../shared/select";
 import Button from "../shared/button";
+import { useNavigate } from "react-router-dom";
 
 const GenerateReport = ({ isGenerateReport, setIsGenerateReport }) => {
+  const navigate = useNavigate();
   const taxOptions = [
     { value: "VAT", label: "VAT" },
     { value: "Service Tax", label: "Service Tax" },
@@ -19,11 +21,11 @@ const GenerateReport = ({ isGenerateReport, setIsGenerateReport }) => {
     { value: "Last Quarter", label: "Last Quarter" },
     { value: "Yearly", label: "Yearly" },
   ];
-const reportTypeOptions=[
+  const reportTypeOptions = [
     { value: "Monthly", label: "Monthly" },
     { value: "Weekly", label: "Weekly" },
     { value: "Yearly", label: "Yearly" },
-]
+  ];
   const handleOk = () => {
     setIsGenerateReport(false);
   };
@@ -43,7 +45,7 @@ const reportTypeOptions=[
         maskClosable={true}
         footer={null}
       >
-        <div className="modal-content flex gap-[20px] flex-col  ">
+        <div className="modal-content flex gap-[8px] flex-col pb-3.5 ">
           <p className="font-bold medium pt-[18px] pb-[10px] px-[15px]  border-b-[1px] border-solid border-b-[gainsboro]">
             Generate New Report
           </p>
@@ -74,6 +76,7 @@ const reportTypeOptions=[
 
             <div className="flex gap-2 mt-4">
               <Button
+                onClick={handleCancel}
                 text="Generate Report"
                 className="bg-primary rounded-lg w-full text-white p-3 small font-semibold"
               />

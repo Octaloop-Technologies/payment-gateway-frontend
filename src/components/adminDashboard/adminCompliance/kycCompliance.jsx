@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import CommonTable from "../../shared/commonTable";
-
+import ReqKyc from "../../modals/reqKyc";
 const KycCompliance = () => {
+  const [isReqKyc, setIsReqKyc] = useState(false);
   const columns = [
     {
       title: "User",
@@ -49,7 +50,7 @@ const KycCompliance = () => {
       key: "actions",
       render: (text) => (
         <button
-          onClick={() => setIsCase(true)}
+          onClick={() => setIsReqKyc(true)}
           className="bg-[#247BA0] text-white px-4 py-2.5 w-[130px] rounded-xl small font-semibold"
         >
           {text}
@@ -91,6 +92,7 @@ const KycCompliance = () => {
           // selectStatus={true}
         />
       </div>
+      <ReqKyc isReqKyc={isReqKyc} setIsReqKyc={setIsReqKyc} />
     </>
   );
 };

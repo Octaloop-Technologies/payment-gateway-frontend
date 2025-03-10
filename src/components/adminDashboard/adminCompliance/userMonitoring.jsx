@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import CommonTable from "../../shared/commonTable";
 import Chips from "../../shared/chips";
+import ComplianceInvestigate from "../../modals/complianceInvestigate";
+import ViewReport from "../../modals/viewReport";
 
 const UserMonitoring = () => {
+  const [isInvestigate, setIsInvestigate] = useState(false);
+  const [isViewReport, setIsViewReport] = useState(false);
   const columns = [
     {
       title: "Case ID",
@@ -53,14 +57,22 @@ const UserMonitoring = () => {
       title: "Actions",
       dataIndex: "actions",
       key: "actions",
-      render: (text) => (
-        <button
-          onClick={() => setIsCase(true)}
-          className="bg-[#247BA0] text-white px-4 py-2.5 w-[130px] rounded-xl small font-semibold"
-        >
-          {text}
-        </button>
-      ),
+      render: (text) => {
+        return (
+          <button
+            onClick={() => {
+              if (text === "Investigate") {
+                setIsInvestigate(true);
+              } else {
+                setIsViewReport(true);
+              }
+            }}
+            className="!bg-[#247BA0] text-white px-4 py-2.5 w-[130px] rounded-xl small font-semibold"
+          >
+            {text}
+          </button>
+        );
+      },
     },
   ];
 
@@ -72,7 +84,7 @@ const UserMonitoring = () => {
       amount: "$8,500",
       issueType: "Unusual Transaction",
       status: "Resolved",
-      actions: " Investigate",
+      actions: "Investigate",
     },
     {
       key: "2",
@@ -81,7 +93,7 @@ const UserMonitoring = () => {
       amount: "$8,500",
       issueType: "Multiple Failed KYC",
       status: "Open",
-      actions: " View Report",
+      actions: "View Report",
     },
   ];
   return (
@@ -98,6 +110,16 @@ const UserMonitoring = () => {
           selectDate={false}
         />
       </div>
+
+      <ComplianceInvestigate
+        isInvestigate={isInvestigate}
+        setIsInvestigate={setIsInvestigate}
+      />
+
+      <ViewReport
+        isViewReport={isViewReport}
+        setIsViewReport={setIsViewReport}
+      />
     </>
   );
 };
