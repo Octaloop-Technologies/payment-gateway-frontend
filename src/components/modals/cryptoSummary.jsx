@@ -4,10 +4,14 @@ import Button from "../shared/button";
 import { Modal, Switch } from "antd";
 import AddCrypto from "./addCrypto";
 import ExchangeRateModal from "./exchangeRateModal";
+import ModifyTransaction from "./modifyTransaction";
+import DeleteCurrency from "./deleteCurrency";
 
 const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
   const [isToggled, setIsToggled] = useState(true);
-  const [isExchangeRate, setIsExchangeRate]= useState(false);
+  const [isExchangeRate, setIsExchangeRate] = useState(false);
+  const [isModifyTransaction, setIsModifyTransaction] = useState(false);
+  const [isDeleteCurrency, setIsDeleteCurrency] = useState(false);
 
   const handleToggle = (checked) => {
     setIsToggled(checked);
@@ -70,11 +74,11 @@ const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
           {/* Marked Safe */}
           <div className="p-6 w-full flex flex-col gap-8">
             <div
-              className={`w-full p-3 rounded-lg border-solid border-[1px] flex transition-all duration-300
+              className={`w-full p-3 rounded-lg border-solid border-[1px] flex justify-between transition-all duration-300
         ${
           isToggled
-            ? "    bg-[#eaf2f6] border-[#247BA0] justify-around"
-            : "bg-light-pink border-red-500 justify-between"
+            ? "    bg-[#eaf2f6] border-[#247BA0]"
+            : "bg-light-pink border-red-500 "
         }`}
             >
               <p className="font-semibold small">
@@ -99,17 +103,28 @@ const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
             </div>
 
             <div className="w-full flex flex-col gap-3">
-              <Button onClick={(()=>{setIsExchangeRate(true); setIsCryptoModal(false);})}
+              <Button
+                onClick={() => {
+                  setIsExchangeRate(true);
+                  setIsCryptoModal(false);
+                }}
                 text="Update Exchange Rate"
                 className="bg-primary rounded-lg w-full text-white p-3 small font-semibold"
               />
               <Button
+                onClick={() => {
+                  setIsModifyTransaction(true);
+                  setIsCryptoModal(false);
+                }}
                 text="Modify Transaction Fees"
                 className="bg-primary rounded-lg w-full text-white p-3 small font-semibold"
               />
 
               <Button
-                onClick={handleCancel}
+                onClick={() => {
+                  setIsDeleteCurrency(true);
+                  setIsCryptoModal(false);
+                }}
                 text="Delete Currency"
                 className="bg-light-pink rounded-lg w-full text-crimson p-3 small font-semibold"
               />
@@ -118,7 +133,19 @@ const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
         </div>
       </Modal>
 
-      <ExchangeRateModal isExchangeRate={isExchangeRate} setIsExchangeRate={setIsExchangeRate}/>
+      <ExchangeRateModal
+        isExchangeRate={isExchangeRate}
+        setIsExchangeRate={setIsExchangeRate}
+      />
+      <ModifyTransaction
+        isModifyTransaction={isModifyTransaction}
+        setIsModifyTransaction={setIsModifyTransaction}
+      />
+
+      <DeleteCurrency
+        isDeleteCurrency={isDeleteCurrency}
+        setIsDeleteCurrency={setIsDeleteCurrency}
+      />
     </>
   );
 };

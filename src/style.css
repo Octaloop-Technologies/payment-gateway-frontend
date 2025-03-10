@@ -141,6 +141,10 @@ button {
 .ant-modal .ant-modal-content {
   padding: 0px;
 }
+
+.ant-modal .ant-modal-body {
+  line-height: normal;
+}
 /* .ant-pagination .ant-pagination-item{
   height: auto;
   background-color: #247ba0;

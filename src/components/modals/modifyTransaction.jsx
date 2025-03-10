@@ -9,54 +9,100 @@ import Input from "../shared/input";
 import Textarea from "../shared/textarea";
 import RefundSuccess from "./refundSuccess";
 
-const ExchangeRateModal = ({ isExchangeRate, setIsExchangeRate }) => {
+const ModifyTransaction = ({ isModifyTransaction, setIsModifyTransaction }) => {
   const handleOk = () => {
-    setIsExchangeRate(false);
+    setIsModifyTransaction(false);
   };
 
   const handleCancel = () => {
-    setIsExchangeRate(false);
+    setIsModifyTransaction(false);
   };
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isRefundSucess, setIsRefundSuccess] = useState(false);
-
   return (
     <>
       <Modal
-        open={isExchangeRate}
+        open={isModifyTransaction}
         onOk={handleOk}
         onCancel={handleCancel}
         className="modal-main"
         centered={true}
-        width={577}
+        width={550}
         maskClosable={true}
         footer={null}
       >
         <div className="modal-content flex  flex-col  ">
           <p className="font-bold medium pt-[18px] pb-[10px] px-[15px]  border-b-[1px] border-solid border-b-[gainsboro]">
-            Update Exchange Rate
+            Modify Transaction Fees
           </p>
           <div className="w-full flex flex-col gap-5 px-5 mt-10 pb-7">
             <p className="text-2xl font-semibold">
-              Adjust the exchange rate for Bitcoin (BTC) to ensure correct
-              conversion for transactions.
+              Update the processing fees for different payment types.
             </p>
+            <div className="w-full border border-[gainsboro] rounded-[10px] overflow-hidden">
+              <table className="w-full border-collapse">
+                <thead className="bg-[#deebf1]">
+                  <tr className="py-3 px-6 text-primary font-bold">
+                    <td className="py-3 px-6">Transaction Type</td>
+                    <td className="py-3 px-6">Current Fee</td>
+                    <td className="py-3 px-6">New Fee</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="small font-medium border-solid border-b-[1px] border-b-[gainsboro]">
+                    <td className="p-6">Fiat(USD/EUR)</td>
+                    <td className="p-6">2.5%</td>
+                    <td className="p-6">
+                      {/* <div className="w-[152px] p-3 rounded-lg border-solid border-[#247BA0] border-[1px] flex justify-start">
+                        <p className="small font-semibold"> Enter New %] </p>
+
+                      </div> */}
+
+                      <Input
+                        type="text"
+                        wrapperClass="w-[152px] "
+                        placeholder="Enter New %]"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr className="small font-medium border-solid border-b-[1px] border-b-[gainsboro]">
+                    <td className="p-6">Crypto(BTC/ETH)</td>
+                    <td className="p-6">1%</td>
+                    <td className="p-6">
+                      {/* <div className="w-[152px] p-3 rounded-lg border-solid border-[#247BA0] border-[1px] flex justify-start">
+                        <p className="small font-semibold"> Enter New %] </p>
+                      </div> */}
+
+                      <Input
+                        type="text"
+                        wrapperClass="w-[152px] "
+                        placeholder="Enter New %]"
+                      />
+                    </td>
+                  </tr>
+
+                  <tr className="small font-medium ">
+                    <td className="p-6">P2P Transfer</td>
+                    <td className="p-6">0.5%</td>
+                    <td className="p-6">
+                      {/* <div className="w-[152px] p-3 rounded-lg border-solid border-[#247BA0] border-[1px] flex justify-start">
+                        <p className="small font-semibold"> Enter New %] </p>
+                      </div> */}
+
+                      <Input
+                        type="text"
+                        wrapperClass="w-[152px] "
+                        placeholder="Enter New %]"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <div className="w-full flex flex-col gap-5 ">
-              <Input
-                type="text"
-                label="Current Rate"
-                wrapperClass="w-full"
-                placeholder="1 BTC = $48,500"
-              />
-
-              <Input
-                type="text"
-                label="New Rate 1 BTC = $"
-                wrapperClass="w-full"
-                placeholder="Enter New Rate"
-              />
-
               <div className="w-full border-[1px] border-solid border-[#247BA0] p-3 rounded-lg flex justify-between">
                 <p className="small font-semibold">Effective Date</p>
                 <div className="relative inline-block">
@@ -98,9 +144,9 @@ const ExchangeRateModal = ({ isExchangeRate, setIsExchangeRate }) => {
                 <Button
                   onClick={() => {
                     setIsRefundSuccess(true);
-                    setIsExchangeRate(false);
+                    setIsModifyTransaction(false);
                   }}
-                  text="Save New Rate"
+                  text="Save New Fees"
                   className="bg-primary rounded-lg w-full text-white p-4 small font-semibold"
                 />
                 <Button
@@ -123,4 +169,4 @@ const ExchangeRateModal = ({ isExchangeRate, setIsExchangeRate }) => {
   );
 };
 
-export default ExchangeRateModal;
+export default ModifyTransaction;

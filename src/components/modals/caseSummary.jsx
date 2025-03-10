@@ -77,11 +77,11 @@ const CaseSummary = ({ isCase, setIsCase }) => {
           {/* Marked Safe */}
           <div className="p-6 w-full flex flex-col gap-8">
             <div
-              className={`w-full p-3 rounded-lg border-solid border-[1px] flex transition-all duration-300
+              className={`w-full p-3 rounded-lg border-solid border-[1px] flex justify-between transition-all duration-300
         ${
           isToggled
-            ? "    bg-[#eaf2f6] border-[#247BA0] justify-around"
-            : "bg-light-pink border-red-500 justify-between"
+            ? "    bg-[#eaf2f6] border-[#247BA0]"
+            : "bg-light-pink border-red-500 "
         }`}
             >
               <p className="font-semibold small">

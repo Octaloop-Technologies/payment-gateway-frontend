@@ -14,6 +14,7 @@ const CommonTable = ({
   selectStatus = true,
   selectDate = true,
   selectType = true,
+  durationType = false,
   ispagination = true,
 }) => {
   const [filteredData, setFilteredData] = useState(dataSource);
@@ -37,6 +38,17 @@ const CommonTable = ({
     { value: "Unusual", label: "Unusual" },
     { value: "Multiple", label: "Multiple" },
   ];
+  const durationOption = [
+    {
+      value: "Monthly",
+      label: "Monthly",
+    },
+
+    {
+      value: "Quarterly",
+      label: "Quarterly",
+    },
+  ];
 
   return (
     <>
@@ -53,19 +65,41 @@ const CommonTable = ({
                 wrapperClass="w-full"
               />
             )}
-
+            {durationType && (
+              <CustomSelect
+                placeholder="Type"
+                options={durationOption}
+                width={140}
+              />
+            )}
             {paymentMethod && (
-              <CustomSelect placeholder="Method" options={methodOptions}  width={140} />
+              <CustomSelect
+                placeholder="Method"
+                options={methodOptions}
+                width={140}
+              />
             )}
 
             {selectDate && (
-              <CustomSelect placeholder="Date" options={dateOptions} width={140} />
+              <CustomSelect
+                placeholder="Date"
+                options={dateOptions}
+                width={140}
+              />
             )}
             {selectStatus && (
-              <CustomSelect placeholder="Status" options={statusOptions} width={140} />
+              <CustomSelect
+                placeholder="Status"
+                options={statusOptions}
+                width={140}
+              />
             )}
             {selectType && (
-              <CustomSelect placeholder="Type" options={typeOptions} width={140} />
+              <CustomSelect
+                placeholder="Type"
+                options={typeOptions}
+                width={140}
+              />
             )}
           </div>
         </div>

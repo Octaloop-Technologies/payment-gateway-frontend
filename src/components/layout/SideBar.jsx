@@ -7,6 +7,7 @@ import cryptoIcon from "../../assets/icons/crypto.svg";
 import complianceIcon from "../../assets/icons/tax.svg";
 import settingIcon from "../../assets/icons/setting.svg";
 import logoutIcon from "../../assets/icons/logout.svg";
+import logo from "../../assets/icons/logo.svg";
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -60,24 +61,26 @@ const SideBar = () => {
     <div className="bg-white shadow-primary  h-full flex flex-col gap-4">
       {/* logo  */}
       <div className="flex p-[18.5px] ">
-        <img className="w-24" src="/leggoLogo.svg" alt="logo" />
+        <img className="w-24 object-cover" src={logo} alt="logo" />
       </div>
 
       {/* tabs  */}
-      <div className="flex flex-col gap-8 border-t-solid border-t-[gainsboro]  py-7 px-8 pt-2 border-t-[1px] pt-3">
+      <div className="flex flex-col gap-8 border-t-solid border-t-[gainsboro]  py-7 px-8  border-t-[1px] pt-7">
         {tablist.map((tab) => (
           <>
             <NavLink
               to={tab.link}
               key={tab.id}
               className={({ isActive }) =>
-                `flex items-center gap-4  font-semibold text-base  rounded-primary  ${
-                  isActive
-                    ? " text-primary"
-                    : "text-gray"
+                `flex items-center gap-4 font-semibold text-base  rounded-primary  relative ${
+                  isActive ? " text-primary" : "text-gray"
                 }`
               }
             >
+              {/* Show the div only when active */}
+              {pathname === tab.link && (
+                <div className="w-[4px] h-[40px] bg-primary rounded-lg absolute top-[-5px] left-[-32px]"></div>
+              )}
               <img
                 src={tab.icon}
                 alt=""

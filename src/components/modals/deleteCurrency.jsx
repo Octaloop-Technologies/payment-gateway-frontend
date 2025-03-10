@@ -2,24 +2,21 @@ import React, { useState } from "react";
 import msgImg from "../../assets/images/dashboard/msgImg.png";
 import Button from "../shared/button";
 import { Modal } from "antd";
-import Input from "../shared/input";
-import Textarea from "../shared/textarea";
 import RefundSuccess from "./refundSuccess";
 
-const AddCrypto = ({ isAddCrypto, setIsAddCrypto }) => {
+const DeleteCurrency = ({ isDeleteCurrency, setIsDeleteCurrency }) => {
   const [isRefundSucess, setIsRefundSuccess] = useState(false);
-
   const handleOk = () => {
-    setIsAddCrypto(false);
+    setIsDeleteCurrency(false);
   };
 
   const handleCancel = () => {
-    setIsAddCrypto(false);
+    setIsDeleteCurrency(false);
   };
   return (
     <>
       <Modal
-        open={isAddCrypto}
+        open={isDeleteCurrency}
         onOk={handleOk}
         onCancel={handleCancel}
         className="modal-main"
@@ -28,26 +25,18 @@ const AddCrypto = ({ isAddCrypto, setIsAddCrypto }) => {
         maskClosable={true}
         footer={null}
       >
-        <div className="modal-content flex gap-[10px] flex-col pb-4 ">
-          <p className="font-bold medium pt-[18px] pb-[10px] px-[15px]  border-b-[1px] border-solid border-b-[gainsboro]">
-            Add New Cryptocurrency
-          </p>
+        <div className="modal-content flex gap-[20px] flex-col items-center p-9 ">
+          <img className="w-[120px] object-cover" src={msgImg} alt="" />
+          <h2 className="text-2xl font-bold text-center">
+            Are you sure you want to delete this currency
+          </h2>
 
-          <div className="w-full flex flex-col gap-3 p-[18px] ">
-            <div className="w-full flex flex-col gap-5 ">
-              <Input type="text" label="Reason" wrapperClass="w-full" />
-              <Textarea
-                label="Notes"
-                placeholder="Enter additional notes for investigation"
-                wrapperClass="w-full min-h-[150px] h-full"
-                rows={6}
-              />
-            </div>
+          <div className="w-full flex flex-col gap-3 ">
             <Button
               onClick={() => {
-                setIsRefundSuccess(true), setIsAddCrypto(false);
+                setIsRefundSuccess(true), setIsDeleteCurrency(false);
               }}
-              text="Confirm & Freeze Funds"
+              text="Delete"
               className="bg-primary rounded-lg w-full text-white p-3 small font-semibold"
             />
             <Button
@@ -62,10 +51,10 @@ const AddCrypto = ({ isAddCrypto, setIsAddCrypto }) => {
       <RefundSuccess
         isRefundSucess={isRefundSucess}
         setIsRefundSuccess={setIsRefundSuccess}
-        text="Successful!"
+        text="Currency Deleted!"
       />
     </>
   );
 };
 
-export default AddCrypto;
+export default DeleteCurrency;

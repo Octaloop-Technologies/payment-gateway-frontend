@@ -12,6 +12,7 @@ import AdminHome from "./page/Dashboard/adminDashboard/home/adminHome";
 import AdminTransaction from "./page/Dashboard/adminDashboard/transactions/adminTransaction";
 import FraudAlerts from "./components/adminDashboard/adminHome/fraud";
 import AdminCrypto from "./page/Dashboard/adminDashboard/crypto/adminCrypto";
+import AdminCompliance from "./page/Dashboard/adminDashboard/compliance/adminCompliance";
 
 const appRouter = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const appRouter = createBrowserRouter([
             element: <AdminCrypto />,
             path: "/crypto",
           },
+          {
+            element:<AdminCompliance/>,
+            path: "/compliance"
+          }
         ],
       },
     ],

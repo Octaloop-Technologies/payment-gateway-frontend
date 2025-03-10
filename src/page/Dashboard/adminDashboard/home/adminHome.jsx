@@ -2,6 +2,10 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import KeyMetricsCard from "../../../../components/adminDashboard/adminHome/keyMetricsCard";
 import keyUser from "../../../../assets/icons/keyUser.svg";
+import keyPayouts from "../../../../assets/icons/keyPayouts.svg";
+import keyFraud from "../../../../assets/icons/keyAlerts.svg";
+import keyActive from "../../../../assets/icons/keyActiveUser.svg";
+
 import CommonTable from "../../../../components/shared/commonTable";
 import RecentTransactions from "../../../../components/adminDashboard/adminHome/recentTransactions";
 import Fraud from "../../../../components/adminDashboard/adminHome/fraud";
@@ -20,7 +24,7 @@ const metricsData = [
     value: "$780,000",
     description: "Up Processed This Month",
     percentage: "15% ",
-    icon: keyUser,
+    icon: keyPayouts,
     icontrend: "ic:baseline-trending-up",
   },
   {
@@ -28,14 +32,14 @@ const metricsData = [
     value: "3",
     description: "Suspicious transactions",
     percentage: "",
-    icon: keyUser,
+    icon: keyFraud,
   },
   {
     title: "Active Users",
     value: "35,000",
     description: "Up from yesterday",
     percentage: "1.8% ",
-    icon: keyUser,
+    icon: keyActive,
     icontrend: "ic:baseline-trending-up",
   },
 ];
@@ -54,7 +58,7 @@ const AdminHome = () => {
       </div>
 
       <div>
-   <Fraud/>
+        <Fraud />
       </div>
     </div>
   );
