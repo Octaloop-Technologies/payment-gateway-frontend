@@ -1,0 +1,27 @@
+@import "./global";
+
+// base style
+@import "./base/color";
+@import "./base/mixins";
+@import "./base/reset";
+@import "./base/font";
+@import "./base/typography";
+@import "./base/tailwindConfig";
+@import "./base/animations";
+
+// components
+@import "./components/button";
+@import "./components/checkbox";
+@import "./components/input";
+@import "./components/pagination";
+@import "./components/switch";
+@import "./components/footer";
+@import "./components/textarea";
+@import "./components/alert";
+@import "./components/radioButton";
+@import "./components/table";
+@import "./components/select";
+
+// pages
+@import "./page/home";
+@import "./page/account";
