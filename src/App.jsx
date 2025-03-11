@@ -14,8 +14,28 @@ import FraudAlerts from "./components/adminDashboard/adminHome/fraud";
 import AdminCrypto from "./page/Dashboard/adminDashboard/crypto/adminCrypto";
 import AdminCompliance from "./page/Dashboard/adminDashboard/compliance/adminCompliance";
 import AdminSetting from "./page/Dashboard/adminDashboard/settings/adminSetting";
+import Login from "./page/account/login";
+import ResetPassword from "./page/account/resetPassword";
+import Verify from "./page/account/verify";
+import CreateNewPass from "./page/account/createNewPass";
 
 const appRouter = createBrowserRouter([
+  {
+    element: <Login />,
+    path: "/login",
+  },
+  {
+    element: <ResetPassword />,
+    path: "/reset-password",
+  },
+  {
+    element: <Verify />,
+    path: "/verify",
+  },
+  {
+element:<CreateNewPass/>,
+path:"/set-new-password"
+  },
   {
     element: <Layout />,
     path: "/",

@@ -6,8 +6,9 @@ import Input from "../../components/shared/input";
 import Button from "../../components/shared/button";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const CreateNewPass = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <div
@@ -27,28 +28,35 @@ const Login = () => {
           className="w-[35%] py-5 2xl:py-11 px-5 2xl:px-12 flex flex-col gap-[30px] 2xl:gap-[62px] bg-[#cddadf] rounded-2xl "
         >
           {/* Logo */}
-          <img className="w-[150px] 2xl:w-[185px] object-cover mx-auto" src={logo} alt="" />
+          <img
+            className="w-[150px] 2xl:w-[185px] object-cover mx-auto"
+            src={logo}
+            alt=""
+          />
           {/* Content */}
           <div className="w-full flex flex-col justify-start gap-[32px]">
             <div className="flex flex-col">
-              <h1 className="font-bold">Log In</h1>
-              <p className="large font-normal">Welcome Back to Leggo</p>
+              <h1 className="font-bold">Create a New Password</h1>
+              <p className="large font-normal">
+                Set a strong password to keep your account secure
+              </p>
             </div>
 
             <form className="flex flex-col gap-2.5">
-              <Input
-                type="text"
-                label="User Name"
-                wrapperClass="w-[100%]"
-                placeholder="John Smith"
-                className="w-full"
-              />
-
               <Input
                 type="password"
                 label="Password"
                 wrapperClass="w-[100%]"
                 placeholder="Enter Password"
+                className="w-full"
+                icon={true}
+              />
+
+              <Input
+                type="password"
+                label="Confirm Password"
+                wrapperClass="w-[100%]"
+                placeholder="Enter Confirm Password"
                 className="w-full"
                 icon={true}
               />
@@ -73,8 +81,8 @@ const Login = () => {
           {/* button */}
 
           <Button
-            onClick={() => navigate("/admin-home")}
-            text="Login"
+            onClick={() => navigate("/login")}
+            text="Next"
             className="bg-primary rounded-lg w-full text-white p-3 small font-semibold"
           />
         </div>
@@ -83,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CreateNewPass;
