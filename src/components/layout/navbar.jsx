@@ -3,8 +3,10 @@ import Search from "../shared/search";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import userIcon from "../../assets/icons/userPic.svg";
 import logoutIcon from "../../assets/icons/logout.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
 
   const handleShowPopup = (value) => {
@@ -47,7 +49,10 @@ const Navbar = () => {
                 <p className="medium font-semibold">Profile</p>
               </div>
 
-              <div className="flex justify-start gap-2 items-center p-[10px] border-solid border-b-[gainsboro] border-b-[1px]">
+              <div
+                onClick={() => navigate("/settings")}
+                className="flex  justify-start gap-2 cursor-pointer items-center p-[10px] border-solid border-b-[gainsboro] border-b-[1px]"
+              >
                 <Icon
                   icon="mdi:settings-outline"
                   width="24"

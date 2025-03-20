@@ -13,9 +13,9 @@ const CommonTable = ({
   paymentMethod = true,
   selectStatus = true,
   selectDate = true,
-  selectType = true,
   durationType = false,
   ispagination = true,
+  selectSource = false,
 }) => {
   const [filteredData, setFilteredData] = useState(dataSource);
   const methodOptions = [
@@ -37,6 +37,10 @@ const CommonTable = ({
   const typeOptions = [
     { value: "Unusual", label: "Unusual" },
     { value: "Multiple", label: "Multiple" },
+  ];
+  const sourceOptions = [
+    { value: "Rides", label: "Rides" },
+    { value: "Crypto", label: "Crypto" },
   ];
   const durationOption = [
     {
@@ -66,11 +70,13 @@ const CommonTable = ({
               />
             )}
             {durationType && (
-              <CustomSelect
-                placeholder="Type"
-                options={durationOption}
-                width={140}
-              />
+              <>
+                <CustomSelect
+                  placeholder="Type"
+                  options={durationOption}
+                  width={140}
+                />
+              </>
             )}
             {paymentMethod && (
               <CustomSelect
@@ -94,10 +100,18 @@ const CommonTable = ({
                 width={140}
               />
             )}
-            {selectType && (
+            {/* {selectSource && (
               <CustomSelect
                 placeholder="Type"
                 options={typeOptions}
+                width={140}
+              />
+            )} */}
+
+            {selectSource && (
+              <CustomSelect
+                placeholder="Source"
+                options={sourceOptions}
                 width={140}
               />
             )}

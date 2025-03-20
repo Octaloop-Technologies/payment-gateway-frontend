@@ -17,7 +17,7 @@ import { Select } from "antd";
 const { Option } = Select;
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import DonutChart from "../../../../charts/dountChart";
-
+import { Link } from "react-router-dom";
 const metricsData = [
   {
     title: "Total Transactions",
@@ -26,6 +26,7 @@ const metricsData = [
     percentage: "15% ",
     icon: keyUser,
     icontrend: "ic:baseline-trending-up",
+    route: "/total-transaction",
   },
   {
     title: "Total Payouts",
@@ -34,6 +35,7 @@ const metricsData = [
     percentage: "15% ",
     icon: keyPayouts,
     icontrend: "ic:baseline-trending-up",
+    route: "/total-payouts",
   },
   {
     title: "Fraud Alerts",
@@ -41,6 +43,7 @@ const metricsData = [
     description: "Suspicious transactions",
     percentage: "",
     icon: keyFraud,
+    route: "/total-fraud",
   },
   {
     title: "Active Users",
@@ -49,6 +52,7 @@ const metricsData = [
     percentage: "1.8% ",
     icon: keyActive,
     icontrend: "ic:baseline-trending-up",
+    route: "/active-users",
   },
 ];
 const dateOptions = [
@@ -116,9 +120,11 @@ const AdminHome = () => {
       {/* <p className="font-bold text-lg">Key Metrics</p> */}
       <div className="flex justify-between gap-4 w-full">
         <div className=" w-[50%] grid grid-cols-2 gap-4">
-          {metricsData.map((metric, index) => (
-            <KeyMetricsCard key={index} {...metric} />
-          ))}
+        {metricsData.map((metric, index) => (
+        <Link key={index} to={metric.route}>
+          <KeyMetricsCard {...metric} />
+        </Link>
+      ))}
         </div>
         <div className="w-[50%] bg-white p-4 rounded-xl shadow-md flex flex-col gap-2">
           <div className="w-full flex justify-between items-center">

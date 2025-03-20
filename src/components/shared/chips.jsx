@@ -46,7 +46,7 @@ const Chips = ({ status }) => {
       bgClass: "bg-light-pink",
       textClass: "text-black",
     },
- 
+
     verified: {
       label: "Verfied",
       bgClass: "bg-light-green",
@@ -54,7 +54,7 @@ const Chips = ({ status }) => {
     },
     blocked: {
       label: "Blocked",
-      bgClass: "bg-light-error",
+      bgClass: "bg-light-pink",
       textClass: "text-error",
     },
     disputed: {
@@ -66,6 +66,30 @@ const Chips = ({ status }) => {
       label: "Refund",
       bgClass: "bg-light-error",
       textClass: "text-error",
+    },
+
+    denied: {
+      label: "Denied",
+      bgClass: "bg-light-pink",
+      textClass: "text-black",
+    },
+
+    approved: {
+      label: "Approved",
+      bgClass: "bg-light-green",
+      textClass: "text-black",
+    },
+
+    inreview: {
+      label: "In Review",
+      bgClass: "bg-light-green",
+      textClass: "text-black",
+    },
+
+    frozen: {
+      label: "Frozen",
+      bgClass: "bg-light-yellow",
+      textClass: "text-black",
     },
   };
   const chipConfig = statusConfig[type];

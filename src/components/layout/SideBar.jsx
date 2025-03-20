@@ -37,7 +37,7 @@ const SideBar = () => {
     {
       id: 4,
       title: "Payouts",
-      link: "/payouts",
+      link: "/total-payouts",
       icon: payouts,
     },
     {
@@ -62,7 +62,7 @@ const SideBar = () => {
     {
       id: 8,
       title: "Revenue Stream",
-      link: "/revenue",
+      link: "/revenue-stream",
       icon: revenueIcon,
     },
     // {

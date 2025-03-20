@@ -18,6 +18,11 @@ import Login from "./page/account/login";
 import ResetPassword from "./page/account/resetPassword";
 import Verify from "./page/account/verify";
 import CreateNewPass from "./page/account/createNewPass";
+import TotalTransaction from "./page/Dashboard/adminDashboard/home/totalTransaction";
+import TotalPayouts from "./page/Dashboard/adminDashboard/home/totalPayouts";
+import HomeFraud from "./page/Dashboard/adminDashboard/home/homeFraud";
+import ActiveUsers from "./page/Dashboard/adminDashboard/home/activeUsers";
+import RevenueStream from "./page/Dashboard/adminDashboard/revenueStream/revenueStream";
 
 const appRouter = createBrowserRouter([
   {
@@ -33,8 +38,8 @@ const appRouter = createBrowserRouter([
     path: "/verify",
   },
   {
-element:<CreateNewPass/>,
-path:"/set-new-password"
+    element: <CreateNewPass />,
+    path: "/set-new-password",
   },
   {
     element: <Layout />,
@@ -42,34 +47,53 @@ path:"/set-new-password"
     children: [
       {
         element: <DashboardOutlet />,
-        path: "/",
+        path: "/admin-home",
         children: [
           {
             element: <AdminHome />,
             path: "/admin-home",
           },
-
-          {
-            element: <AdminTransaction />,
-            path: "/admin-transactions",
-          },
-          {
-            element: <FraudAlerts />,
-            path: "/fraud-alerts",
-          },
-          {
-            element: <AdminCrypto />,
-            path: "/crypto",
-          },
-          {
-            element: <AdminCompliance />,
-            path: "/compliance",
-          },
-          {
-            element: <AdminSetting />,
-            path: "/settings",
-          },
         ],
+      },
+      {
+        element: <TotalTransaction />,
+        path: "/total-transaction",
+      },
+      {
+        element: <TotalPayouts />,
+        path: "/total-payouts",
+      },
+      {
+        element: <HomeFraud />,
+        path: "/total-fraud",
+      },
+      {
+        element: <ActiveUsers />,
+        path: "/active-users",
+      },
+      {
+        element: <AdminTransaction />,
+        path: "/admin-transactions",
+      },
+      {
+        element: <FraudAlerts />,
+        path: "/fraud-alerts",
+      },
+      {
+        element: <AdminCrypto />,
+        path: "/crypto",
+      },
+      {
+        element: <AdminCompliance />,
+        path: "/compliance",
+      },
+      {
+        element: <AdminSetting />,
+        path: "/settings",
+      },
+      {
+        element: <RevenueStream />,
+        path: "/revenue-stream",
       },
     ],
   },

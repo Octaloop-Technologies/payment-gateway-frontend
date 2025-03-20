@@ -53,7 +53,7 @@ const AdminSetting = () => {
           >
             Roles & Permission
           </p>
-
+{/* 
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
               currentTab === "Payment"
@@ -65,7 +65,7 @@ const AdminSetting = () => {
             }}
           >
             Payment & Transaction
-          </p>
+          </p> */}
 
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${

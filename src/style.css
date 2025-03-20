@@ -26,7 +26,7 @@
   /* Colors */
 
   --color-primary: #247ba0;
-  --color-red: #e93737;
+  --color-red: #CE2323;
   --color-dullWhite: #f7f7f7;
   --color-light-green: #ceeed6;
   --color-light-pink: #f5d1d9;
@@ -37,7 +37,6 @@
   --color-seaGreen: #00b69b;
 
   --color-crimson: #cf1742;
-  --color-red: #e93737;
   --color-light-blue: #e8f5fb;
   --color-orange-dark: #ffbb00;
   --color-blue-dark: #179ad3;
@@ -123,8 +122,8 @@ body {
   background: #deebf1;
 }
 .ant-table-wrapper .ant-table-thead > tr > th {
-  background: #deebf1;
-  color: var(--color-primary);
+  background: var(--color-red);
+  color: white;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
