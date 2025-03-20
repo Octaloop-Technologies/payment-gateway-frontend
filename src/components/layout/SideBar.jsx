@@ -31,7 +31,7 @@ const SideBar = () => {
     {
       id: 3,
       title: "Users",
-      link: "/users",
+      link: "/active-users",
       icon: userIcon,
     },
     {

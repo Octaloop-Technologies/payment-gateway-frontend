@@ -2,8 +2,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
 import FraudDetector from "../../../../components/adminDashboard/adminHome/fraudDetector";
 import FraudRefund from "../../../../components/adminDashboard/adminHome/fraudRefund";
+import { useNavigate } from "react-router-dom";
 
 const HomeFraud = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full flex flex-col gap-[77px] ">
       <div className="w-full flex flex-col gap-[33px]">
