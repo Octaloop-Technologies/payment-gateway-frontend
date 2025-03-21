@@ -55,9 +55,9 @@ const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
           {/* Transaction Data */}
 
           <div className="w-full px-[44px] flex flex-col border-solid border-b-[gainsboro] border-b-[1px]">
-            <div className="bg-[#deebf1] rounded-xl py-3 px-5 flex justify-between">
-              <p className="text-primary small font-bold">Name</p>
-              <p className="text-primary small font-bold">Value</p>
+            <div className="bg-red rounded-xl py-3 px-5 flex justify-between">
+              <p className="text-white small font-bold">Name</p>
+              <p className="text-white small font-bold">Value</p>
             </div>
 
             {transactionData.map((item, index) => (
@@ -77,7 +77,7 @@ const CryptoSummary = ({ isCryptoModal, setIsCryptoModal }) => {
               className={`w-full p-3 rounded-lg border-solid border-[1px] flex justify-between transition-all duration-300
         ${
           isToggled
-            ? "    bg-[#eaf2f6] border-[#247BA0]"
+            ? "    bg-[#cde1d2] border-[#247BA0]"
             : "bg-light-pink border-red-500 "
         }`}
             >

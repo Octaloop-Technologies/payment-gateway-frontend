@@ -31,8 +31,18 @@ const SplineArea = () => {
     },
     xaxis: {
       categories: [
-        "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", 
-        "AUG", "SEP", "OCT", "NOV", "DEC"
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
       ],
       labels: {
         style: {

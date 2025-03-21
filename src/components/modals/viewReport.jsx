@@ -54,7 +54,7 @@ const ViewReport = ({ isViewReport, setIsViewReport }) => {
           {/* Transaction Data */}
 
           <div className="w-full px-[44px]  flex flex-col border-solid border-b-[gainsboro] border-b-[1px]">
-            <div className="bg-red rounded-xl py-3 px-5 flex justify-between">
+            <div className="bg-red rounded-t-xl  py-3 px-5 flex justify-between">
               <p className="text-white small font-bold">Name</p>
               <p className="text-white small font-bold">Value</p>
             </div>
@@ -62,7 +62,7 @@ const ViewReport = ({ isViewReport, setIsViewReport }) => {
             {transactionData.map((item, index) => (
               <div
                 key={index}
-                className="py-2.5 px-5 border-solid border-b-[gainsboro] border-b-[1px] flex justify-between"
+                className="py-3 px-5 border-solid border-b-[gainsboro] border-b-[1px] flex justify-between"
               >
                 <p className="font-semibold small">{item.label}</p>
                 <p className="font-semibold small">{item.value}</p>

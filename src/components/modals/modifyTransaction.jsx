@@ -42,8 +42,8 @@ const ModifyTransaction = ({ isModifyTransaction, setIsModifyTransaction }) => {
             </p>
             <div className="w-full border border-[gainsboro] rounded-[10px] overflow-hidden">
               <table className="w-full border-collapse">
-                <thead className="bg-[#deebf1]">
-                  <tr className="py-3 px-6 text-primary font-bold">
+                <thead className="bg-red">
+                  <tr className="py-3 px-6 text-white font-bold">
                     <td className="py-3 px-6">Transaction Type</td>
                     <td className="py-3 px-6">Current Fee</td>
                     <td className="py-3 px-6">New Fee</td>
@@ -51,7 +51,7 @@ const ModifyTransaction = ({ isModifyTransaction, setIsModifyTransaction }) => {
                 </thead>
                 <tbody>
                   <tr className="small font-medium border-solid border-b-[1px] border-b-[gainsboro]">
-                    <td className="p-6">Fiat(USD/EUR)</td>
+                    <td className="p-6 ">Fiat(USD/EUR)</td>
                     <td className="p-6">2.5%</td>
                     <td className="p-6">
                       {/* <div className="w-[152px] p-3 rounded-lg border-solid border-[#247BA0] border-[1px] flex justify-start">

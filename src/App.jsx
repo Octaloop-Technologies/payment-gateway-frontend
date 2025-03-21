@@ -23,6 +23,7 @@ import TotalPayouts from "./page/Dashboard/adminDashboard/home/totalPayouts";
 import HomeFraud from "./page/Dashboard/adminDashboard/home/homeFraud";
 import ActiveUsers from "./page/Dashboard/adminDashboard/home/activeUsers";
 import RevenueStream from "./page/Dashboard/adminDashboard/revenueStream/revenueStream";
+import ProfileSetting from "./page/Dashboard/adminDashboard/settings/profileSetting";
 
 const appRouter = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const appRouter = createBrowserRouter([
       {
         element: <AdminSetting />,
         path: "/settings",
+      },
+      {
+        element:<ProfileSetting/>,
+        path:"/profile-setting"
       },
       {
         element: <RevenueStream />,

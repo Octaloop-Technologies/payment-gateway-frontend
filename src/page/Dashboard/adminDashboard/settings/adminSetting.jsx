@@ -7,6 +7,7 @@ import UpdatePass from "../../../../components/modals/updatePass";
 import Roles from "../../../../components/adminDashboard/adminSetting/roles";
 import UpdatePayment from "../../../../components/modals/updatePayment";
 import { Switch } from "antd";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const AdminSetting = () => {
   const [currentTab, setCurrentTab] = useState("Security");
@@ -24,6 +25,17 @@ const AdminSetting = () => {
   return (
     <>
       <div className="w-full flex flex-col gap-10 ">
+        <div className="flex gap-2 items-center">
+          <Icon
+            icon="eva:arrow-back-outline"
+            width="24"
+            height="24"
+            style={{ color: "#000" }}
+            onClick={() => navigate("/admin-home")}
+            className="cursor-pointer"
+          />
+          <p className="large font-bold">Settings</p>
+        </div>
         {/* Switcher */}
 
         {/* tabs */}
@@ -53,7 +65,7 @@ const AdminSetting = () => {
           >
             Roles & Permission
           </p>
-{/* 
+
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
               currentTab === "Payment"
@@ -65,7 +77,7 @@ const AdminSetting = () => {
             }}
           >
             Payment & Transaction
-          </p> */}
+          </p>
 
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
@@ -180,14 +192,14 @@ const AdminSetting = () => {
 
           {currentTab === "Notifications" && (
             <div className=" px-[20px] flex flex-col gap-[35px]">
-              <p className="medium font-bold">Notifications</p>
+              <p className="medium font-bold">User Roles & Permissions</p>
 
               <div className="w-[650px] rounded-[10px]">
-                <div className="py-3 px-6 w-full rounded-solid rounded-t-xl  flex justify-between bg-[#deebf1]">
-                  <p className="text-primary small font-bold">
+                <div className="py-3 px-6 w-full rounded-solid rounded-t-xl  flex justify-between bg-red">
+                  <p className="text-white small font-bold">
                     Notification Type
                   </p>
-                  <p className="text-primary small font-bold">
+                  <p className="text-white small font-bold">
                     View Transactions
                   </p>
                 </div>
