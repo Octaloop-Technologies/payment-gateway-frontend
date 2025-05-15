@@ -28,7 +28,7 @@ const AddCrypto = ({ isAddCrypto, setIsAddCrypto }) => {
         maskClosable={true}
         footer={null}
       >
-        <div className="modal-content flex gap-[20px] flex-col  ">
+        <div className="modal-content flex gap-[10px] flex-col pb-4 ">
           <p className="font-bold medium pt-[18px] pb-[10px] px-[15px]  border-b-[1px] border-solid border-b-[gainsboro]">
             Add New Cryptocurrency
           </p>

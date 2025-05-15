@@ -21,12 +21,12 @@
   --breakpoint-lg: 992px;
   --breakpoint-lg10: 1024px;
   --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1320px;
+  --breakpoint-2xl: 1440px;
 
   /* Colors */
 
   --color-primary: #247ba0;
-  --color-red: #e93737;
+  --color-red: #CE2323;
   --color-dullWhite: #f7f7f7;
   --color-light-green: #ceeed6;
   --color-light-pink: #f5d1d9;
@@ -37,7 +37,6 @@
   --color-seaGreen: #00b69b;
 
   --color-crimson: #cf1742;
-  --color-bg: #c2c2c2;
   --color-light-blue: #e8f5fb;
   --color-orange-dark: #ffbb00;
   --color-blue-dark: #179ad3;
@@ -123,8 +122,8 @@ body {
   background: #deebf1;
 }
 .ant-table-wrapper .ant-table-thead > tr > th {
-  background: #deebf1;
-  color: var(--color-primary);
+  background: var(--color-red);
+  color: white;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -140,6 +139,10 @@ button {
 }
 .ant-modal .ant-modal-content {
   padding: 0px;
+}
+
+.ant-modal .ant-modal-body {
+  line-height: normal;
 }
 /* .ant-pagination .ant-pagination-item{
   height: auto;
@@ -164,4 +167,61 @@ button {
 
 .ant-pagination .ant-pagination-item-active a {
   color: white !important;
+}
+.ant-switch .ant-switch-handle {
+  width: 20px;
+  height: 20px;
+  top: -2px;
+}
+/* .ant-switch .ant-switch-handle::before {
+  background-color: #9b9b9b;
+} */
+.ant-switch {
+  height: 16px;
+  background-color: #e2e2e2;
+}
+
+.ant-switch.ant-switch-checked .ant-switch-inner {
+  background-color: #97bac9;
+  background: #97bac9;
+}
+/* .ant-switch.ant-switch-checked {
+  background-color: #97bac9;
+} */
+.ant-switch.ant-switch-checked .ant-switch-handle ::before {
+  background-color: #247ba0 !important;
+}
+.react-calendar{
+  width:100%;
+
+}
+@media screen and (max-width: 1440px) {
+  body {
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+
+    .extra-large {
+      font-size: 19px;
+    }
+    .large {
+      font-size: 17px;
+    }
+
+    .medium {
+      font-size: 15px;
+    }
+    .small {
+      font-size: 13px;
+    }
+    .extra-small {
+      font-size: 12px;
+    }
+  }
 }

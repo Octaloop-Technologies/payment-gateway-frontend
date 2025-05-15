@@ -21,12 +21,15 @@ const KeyMetricsCard = ({
       <h2 className="font-bold">{value}</h2>
 
       <div className="w-full flex gap-2">
-        <Icon
-          icon={icontrend}
-          width="24"
-          height="24"
-          style={{ color: "#00B69B" }}
-        />
+        {icontrend && (
+          <Icon
+            icon={icontrend}
+            width="24"
+            height="24"
+            style={{ color: "#00B69B" }}
+          />
+        )}
+
         <p className="medium font-semibold text-seaGreen">
           {percentage}
           <span className="text-darkGray">{description}</span>
