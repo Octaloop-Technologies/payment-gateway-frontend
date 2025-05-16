@@ -94,7 +94,7 @@ const AdminTransaction = () => {
   ];
   return (
     <>
-      <div className="">
+      <div className=" ">
         <CommonTable
           heading="Transactions"
           columns={columns}

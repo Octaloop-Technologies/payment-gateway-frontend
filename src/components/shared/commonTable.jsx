@@ -56,17 +56,17 @@ const CommonTable = ({
 
   return (
     <>
-      <div className="w-full flex flex-col gap-2.5 rounded-xl bg-white py-6 px-7">
-        <div className="flex w-full justify-between items-center ">
+      <div className="w-full flex flex-col gap-2.5 rounded-xl bg-white py-6 px-7 ">
+        <div className="flex  flex-col lg:flex-row w-full justify-between items-center  ">
           {heading && <p className="medium font-bold w-full">{heading}</p>}
 
-          <div className="flex w-full justify-end gap-2 items-center">
+          <div className="flex flex-col md:flex-row w-full justify-end gap-2 items-center">
             {searchBox && (
               <Search
                 type="search"
                 placeholder="Search..."
-                width={340}
-                wrapperClass="w-full"
+                
+                wrapperClass="w-full lg:min-w-[340px]"
               />
             )}
             {durationType && (
@@ -126,6 +126,7 @@ const CommonTable = ({
               dataSource={filteredData}
               pagination={false} // Disable default pagination
               className="custom-table"
+              scroll={{x:800}}
             />
 
             {/* Custom Pagination with Text */}

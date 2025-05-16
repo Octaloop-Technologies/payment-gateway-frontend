@@ -29,7 +29,7 @@ const Navbar = () => {
     console.log("Search Dropdown State:", !showSearch);
   };
   return (
-    <>
+    <nav className="">
       <div className="w-full flex justify-end gap-3 p-5 bg-white border-b-solid border-b-[gainsboro]   border-b-[1px] ">
         <div
           onClick={handleShowSearch}
@@ -189,7 +189,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </>
+    </nav>
   );
 };
 

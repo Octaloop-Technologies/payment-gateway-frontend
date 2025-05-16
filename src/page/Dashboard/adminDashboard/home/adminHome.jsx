@@ -10,11 +10,9 @@ import CustomSelect from "../../../../components/shared/select";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Switch } from "antd";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import DonutChart from "../../../../charts/dountChart";
 import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer } from "react-leaflet";
 import WorldMap from "react-svg-worldmap";
 import Input from "../../../../components/shared/input";
 import Button from "../../../../components/shared/button";
@@ -121,7 +119,7 @@ const AdminHome = () => {
     { value: "Rider", label: "Rider" },
     { value: "Driver", label: "Driver" },
   ];
- const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleShowPopup = (value) => {
     setShowPopup(!showPopup);
@@ -163,7 +161,7 @@ const AdminHome = () => {
     <div className="w-full flex flex-col gap-4">
       {/* <p className="font-bold text-lg">Key Metrics</p> */}
       <div className="flex flex-col 2xl:flex-row justify-between gap-4 w-full">
-        <div className="w-[100%] 2xl:w-[50%] grid grid-cols-2 gap-4">
+        <div className="w-[100%] 2xl:w-[50%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {metricsData.map((metric, index) => (
             <Link key={index} to={metric.route}>
               <KeyMetricsCard {...metric} />
@@ -181,22 +179,16 @@ const AdminHome = () => {
             />
           </div>
 
-          <SplineArea />
+          <div>
+            {" "}
+            <SplineArea />
+          </div>
         </div>
       </div>
 
-      {/* <div>
-        <RecentTransactions />
-      </div> */}
-
-      {/* <div>
-        <Fraud />
-      </div> */}
-
       <div className="flex w-full gap-3 flex-wrap 2xl:flex-nowrap ">
-        {/* <div className=" bg-white p-4 rounded-xl shadow-md flex flex-col gap-2"> */}
         {/* Calender */}
-        <div className="p-4 bg-white shadow-lg rounded-lg w-[48%] 2xl:w-[25%] h-[500px] 2xl:h-[420px]">
+        <div className="p-4 bg-white shadow-lg rounded-lg w-fit w-[48%] 2xl:w-[25%] h-[500px] 2xl:h-[420px]">
           {!showAddEvent ? (
             <>
               {/* Header */}
@@ -326,90 +318,101 @@ const AdminHome = () => {
                   onClick={handleShowPopup}
                 />
 
-              {
-                showPopup && (
+                {showPopup && (
                   <>
-                  <div className="p-4 absolute bottom-16 right-0 bg-white shadow-lg rounded-lg ">
-                     {/* Header */}
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="text-lg font-semibold">Calendar</h4>
-                <div className="flex gap-2">
-                  <CustomSelect
-                    placeholder="Yearly"
-                    options={durationOptions}
-                    width={80}
-                    value={view}
-                    onChange={(value) => setView(value)} // Update view state when selection changes
-                  />
+                    <div className="p-4 absolute bottom-16 right-0 bg-white shadow-lg rounded-lg ">
+                      {/* Header */}
+                      <div className="flex justify-between items-center mb-4">
+                        <h4 className="text-lg font-semibold">Calendar</h4>
+                        <div className="flex gap-2">
+                          <CustomSelect
+                            placeholder="Yearly"
+                            options={durationOptions}
+                            width={80}
+                            value={view}
+                            onChange={(value) => setView(value)} // Update view state when selection changes
+                          />
 
-                  <button
-                    onClick={() => handleAddEvent({ title: "New Event", date })}
-                    className="bg-primary text-white extra-small px-3 py-1 rounded"
-                  >
-                    Add Event
-                  </button>
-                </div>
-              </div>
-
-              {/* Calendar View */}
-              {view === "yearly" && (
-                <Calendar onChange={setDate} value={date} className="w-full" />
-              )}
-
-              {view === "daily" && (
-                <div className="mt-4 flex flex-col gap-4">
-                  <div className="w-full flex justify-between">
-                    <p className="text-sm font-semibold mb-2">Events</p>
-                    <p className="text-sm font-semibold mb-2">Events</p>
-                  </div>
-
-                  <div className="flex w-full gap-2  items-start">
-                    <p className="extra-small font-medium">Thu 14</p>
-                    <div className="flex flex-col gap-2 w-full">
-                      <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-green rounded-sm border-solid border-l-[2px] border-l-[#2A9D8F]">
-                        <p className="extra-small font-semibold">
-                          Meditation and mindfulness
-                        </p>
-                        <p className="extra-small font-normal">13/03/2025</p>
+                          <button
+                            onClick={() =>
+                              handleAddEvent({ title: "New Event", date })
+                            }
+                            className="bg-primary text-white extra-small px-3 py-1 rounded"
+                          >
+                            Add Event
+                          </button>
+                        </div>
                       </div>
 
-                      <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-green rounded-sm border-solid border-l-[2px] border-l-[#2A9D8F]">
-                        <p className="extra-small font-semibold">
-                          Meditation and mindfulness
-                        </p>
-                        <p className="extra-small font-normal">13/03/2025</p>
-                      </div>
+                      {/* Calendar View */}
+                      {view === "yearly" && (
+                        <Calendar
+                          onChange={setDate}
+                          value={date}
+                          className="w-full"
+                        />
+                      )}
+
+                      {view === "daily" && (
+                        <div className="mt-4 flex flex-col gap-4">
+                          <div className="w-full flex justify-between">
+                            <p className="text-sm font-semibold mb-2">Events</p>
+                            <p className="text-sm font-semibold mb-2">Events</p>
+                          </div>
+
+                          <div className="flex w-full gap-2  items-start">
+                            <p className="extra-small font-medium">Thu 14</p>
+                            <div className="flex flex-col gap-2 w-full">
+                              <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-green rounded-sm border-solid border-l-[2px] border-l-[#2A9D8F]">
+                                <p className="extra-small font-semibold">
+                                  Meditation and mindfulness
+                                </p>
+                                <p className="extra-small font-normal">
+                                  13/03/2025
+                                </p>
+                              </div>
+
+                              <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-green rounded-sm border-solid border-l-[2px] border-l-[#2A9D8F]">
+                                <p className="extra-small font-semibold">
+                                  Meditation and mindfulness
+                                </p>
+                                <p className="extra-small font-normal">
+                                  13/03/2025
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex w-full gap-2  items-start">
+                            <p className="extra-small font-medium">Fri 22</p>
+
+                            <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-yellow rounded-sm border-solid border-l-[2px] border-l-[#EE9D75]">
+                              <p className="extra-small font-semibold">
+                                Meditation and mindfulness
+                              </p>
+                              <p className="extra-small font-normal">
+                                13/03/2025
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex w-full gap-2  items-start">
+                            <p className="extra-small font-medium">Mon 20</p>
+
+                            <div className="flex flex-col w-full gap-1 py-2 px-3 bg-purple rounded-sm border-solid border-l-[2px] border-l-[#0073CC]">
+                              <p className="extra-small font-semibold">
+                                Meditation and mindfulness
+                              </p>
+                              <p className="extra-small font-normal">
+                                13/03/2025
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </div>
-
-                  <div className="flex w-full gap-2  items-start">
-                    <p className="extra-small font-medium">Fri 22</p>
-
-                    <div className="flex flex-col w-full gap-1 py-2 px-3 bg-light-yellow rounded-sm border-solid border-l-[2px] border-l-[#EE9D75]">
-                      <p className="extra-small font-semibold">
-                        Meditation and mindfulness
-                      </p>
-                      <p className="extra-small font-normal">13/03/2025</p>
-                    </div>
-                  </div>
-
-                  <div className="flex w-full gap-2  items-start">
-                    <p className="extra-small font-medium">Mon 20</p>
-
-                    <div className="flex flex-col w-full gap-1 py-2 px-3 bg-purple rounded-sm border-solid border-l-[2px] border-l-[#0073CC]">
-                      <p className="extra-small font-semibold">
-                        Meditation and mindfulness
-                      </p>
-                      <p className="extra-small font-normal">13/03/2025</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-                  </div>
                   </>
-                )
-              }
-              
+                )}
               </div>
 
               <div className="border-solid border-[1px] border-[gainsboro] p-2 rounded-lg mb-2 flex justify-between items-center">
@@ -434,7 +437,6 @@ const AdminHome = () => {
                   height="20"
                   style={{ color: "#000" }}
                 />
-             
               </div>
 
               <Button
@@ -447,7 +449,7 @@ const AdminHome = () => {
         </div>
 
         {/* Map */}
-        <div className="p-4 bg-white shadow-md rounded-lg w-[50%] ">
+        <div className="p-4 bg-white shadow-md rounded-lg w-fit lg:w-[50%] ">
           {/* Dropdown Filters */}
           <div className="flex flex-wrap gap-3 mb-4 w-full">
             <CustomSelect
@@ -488,33 +490,21 @@ const AdminHome = () => {
           </div>
 
           {/* Map Section */}
-          {/* <div className="border p-4 rounded-lg bg-gray-100 h-[350px]">
-            <ComposableMap>
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography key={geo.rsmKey} geography={geo} />
-                  ))
-                }
-              </Geographies>
-            </ComposableMap>
-          </div> */}
 
-          {/* <MapContainer
-            center={[20, 0]} // Global center (latitude, longitude)
-            zoom={2} // Adjust zoom level
-            style={{ height: "500px", width: "100%" }} // Map size
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" // OpenStreetMap tiles
+          {/* 
+          <WorldMap color="red" value-suffix="people" data={data} size="sm" /> */}
+          <div>
+            <WorldMap
+              data={data}
+              color="red"
+              valueSuffix="people"
+              size="responsive"
             />
-          </MapContainer> */}
-
-          <WorldMap color="red" value-suffix="people" data={data} size="lg" />
+          </div>
         </div>
 
         {/* DonutChart */}
-        <div className="p-4 bg-white shadow-md rounded-lg h-[430px] w-[48%]  2xl:w-[30%]">
+        <div className="p-4 bg-white shadow-md rounded-lg h-[430px] w-fit lg:w-[48%]  2xl:w-[30%]">
           <DonutChart />
         </div>
       </div>

@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import Navbar from "./navbar";
-
+import { Icon } from "@iconify/react";
 const Layout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
   return (
-    <section className="bg-[#F0F2F4]  w-full flex justify-between  ">
-      <div className=" max-w-0 lg:max-w-[280px] w-full bg-white  h-[calc(100vh-2px)] shadow-[0px_4px_24.2px_0px_rgba(0,60,82,0.10)] sticky top-0 overflow-auto">
-        <SideBar />
+    <section className="bg-[#F0F2F4]  w-full flex justify-between min-h-screen flex overflow-hidden  ">
+      <div className="   h-[calc(100vh-2px)] ">
+        <div
+          className={`transition-all duration-300 ${
+            isSidebarOpen ? "block" : "hidden"
+          } lg:block`}
+        >
+          <SideBar isOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />{" "}
+        </div>
       </div>
-      {/* <aside className="w-[250px] shrink-0">
-        <SideBar />
-      </aside> */}
-      <div className="w-full max-w-[calc(100vw-20px)]  lg:max-w-[calc(100vw-250px)] flex flex-col gap-2 xl:gap-0">
-        <Navbar />
-        <div className="page-dom w-full py-5 px-5">
+      <div className="w-full max-w-[calc(100vw-px)]  lg:max-w-[calc(100vw-230px)]   flex flex-col gap-2 xl:gap-0">
+      
+         <Navbar className="" />
+        <button
+          onClick={toggleSidebar}
+          className="fixed top-2 left-2 z-50 lg:hidden"
+        >
+          <Icon
+            icon={isSidebarOpen ? "mdi:close" : "mdi:menu"}
+            className="w-6 h-6 text-gray-800"
+          />
+        </button>
+     
+        <div className="page-dom w-full py-5 px-5 overflow-y-auto">
           <Outlet />
         </div>
       </div>
@@ -23,3 +42,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

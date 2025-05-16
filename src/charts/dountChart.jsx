@@ -52,13 +52,13 @@ const DonutChart = () => {
   };
 
   return (
-    <div className="flex flex-col items-start border p-4 rounded-lg shadow-lg h-[400px]">
+    <div className="flex flex-col items-start border p-4 rounded-lg ">
       <p className="text-base font-bold mb-2 text-start">Chart</p>
       <Chart
         options={chartOptions.options}
         series={chartOptions.series}
         type="donut"
-        width="350"
+        width="120%"
       />
     </div>
   );

@@ -35,9 +35,9 @@ const Search = ({
         style={{ maxWidth, maxHeight, minHeight, minWidth, height, width }}
       >
         <Icon
-          icon="material-symbols-light:search"
-          width="20"
-          height="20"
+          icon="cuida:search-outline"
+          width="24"
+          height="24"
           style={{ color: "#007BFF" }}
         />
         <input

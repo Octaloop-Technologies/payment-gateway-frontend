@@ -84,7 +84,7 @@ const SplineArea = () => {
           options={options}
           series={series}
           type="line"
-          height={340}
+          height={275}
         />
       </div>
     </div>
