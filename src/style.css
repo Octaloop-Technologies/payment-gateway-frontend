@@ -79,6 +79,10 @@ body {
   }
 }
 
+
+body{
+  font-family: Proxima Nova;
+}
 @layer base {
   body {
     font-family: "Proxima Nova", sans-serif;

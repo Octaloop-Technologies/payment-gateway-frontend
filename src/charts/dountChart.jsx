@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 
 const DonutChart = () => {
   const chartOptions = {
-    series: [20, 15, 25, 10, 15, 15], // Adjust values as per your data
+    series: [20, 15, 25, 10, 15, 15],
     options: {
       chart: {
         type: "donut",
@@ -41,8 +41,10 @@ const DonutChart = () => {
                 show: true,
                 label: "Amount Earned",
                 fontSize: "14px",
-                
                 color: "#333",
+                formatter: function () {
+                  return  "$780,000"
+                },
               },
             },
           },
@@ -52,13 +54,13 @@ const DonutChart = () => {
   };
 
   return (
-    <div className="flex flex-col items-start border p-4 rounded-lg  w-full">
+    <div className="flex flex-col items-start border p-4 rounded-lg w-full">
       <p className="text-base font-bold mb-2 text-start">Chart</p>
       <Chart
         options={chartOptions.options}
         series={chartOptions.series}
         type="donut"
-       className="  h-[80%] w-[100%]"
+        className="h-[80%] w-[100%]"
       />
     </div>
   );
