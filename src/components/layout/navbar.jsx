@@ -99,7 +99,7 @@ const Navbar = () => {
 
           {showNotification && (
             <>
-              <div className="absolute top-13 right-0 w-[250px]  :w-[330px] rounded-xl bg-white  z-30 flex flex-col gap-[26px] shadow-primary">
+              <div className="absolute top-13 right-0 w-[250px]  sm:w-[330px] rounded-xl bg-white  z-30 flex flex-col gap-[26px] shadow-primary">
                 <div className="p-5 flex justify-between w-full border-b-[1px] border-solid border-b-[gainsboro]">
                   <p className="medium font-bold">Notifications</p>
                   <p className="small font-semibold">Mark all as read</p>
