@@ -80,7 +80,7 @@ const AdminCrypto = () => {
   ];
   return (
     <>
-      <div className="flex flex-col gap-1 bg-white">
+      <div className="flex flex-col gap-1">
         <div className="w-full flex justify-between px-7 pt-4 items-center">
           <p className="medium font-bold w-full">Crypto Listings</p>
           <Button

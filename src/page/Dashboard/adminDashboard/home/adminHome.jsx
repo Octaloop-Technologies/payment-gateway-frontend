@@ -494,17 +494,19 @@ const AdminHome = () => {
           {/* 
           <WorldMap color="red" value-suffix="people" data={data} size="sm" /> */}
           <div>
-            <WorldMap
+            {/* <WorldMap
               data={data}
               color="red"
               valueSuffix="people"
               size="responsive"
-            />
+            /> */}
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.4772414720896!2d73.01878947627866!3d33.64479403913391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaad3ce4c22b9eccd%3A0x305a3d6f45049dc7!2sOctaloop%20Technologies!5e0!3m2!1sen!2s!4v1747715688089!5m2!1sen!2s" width="100%" height="280"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
         {/* DonutChart */}
-        <div className="p-4 bg-white shadow-md rounded-lg h-[430px] w-fit lg:w-[48%]  2xl:w-[30%]">
+        <div className="p-4 bg-white shadow-md rounded-lg h-fit lg:h-[430px] w-full lg:w-[48%]  2xl:w-[30%]">
           <DonutChart />
         </div>
       </div>

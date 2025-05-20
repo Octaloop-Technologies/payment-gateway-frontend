@@ -21,15 +21,12 @@ const Navbar = () => {
   };
 
   const [showSearch, setShowSearch] = useState(false);
-  // const handleShowSearch = (value) => {
-  //   setShowSearch(!showSearch);
-  // };
   const handleShowSearch = () => {
     setShowSearch((prev) => !prev);
     console.log("Search Dropdown State:", !showSearch);
   };
   return (
-    <nav className="">
+    <nav className=" ">
       <div className="w-full flex justify-end gap-3 p-5 bg-white border-b-solid border-b-[gainsboro]   border-b-[1px] ">
         <div
           onClick={handleShowSearch}
@@ -91,7 +88,7 @@ const Navbar = () => {
 
         <div
           onClick={handleShowNotification}
-          className="size-[50px] relative cursor-pointer rounded-full border-[1px] bg-white border-[#D1D5DB] border-solid flex items-center justify-center"
+          className=" size-[50px] relative cursor-pointer rounded-full border-[1px] bg-white border-[#D1D5DB] border-solid flex items-center justify-center"
         >
           <Icon
             icon="solar:bell-linear"
@@ -102,7 +99,7 @@ const Navbar = () => {
 
           {showNotification && (
             <>
-              <div className="absolute top-13 right-0 w-[330px] rounded-xl bg-white  z-30 flex flex-col gap-[26px] shadow-primary">
+              <div className="absolute top-13 right-0 w-[250px]  :w-[330px] rounded-xl bg-white  z-30 flex flex-col gap-[26px] shadow-primary">
                 <div className="p-5 flex justify-between w-full border-b-[1px] border-solid border-b-[gainsboro]">
                   <p className="medium font-bold">Notifications</p>
                   <p className="small font-semibold">Mark all as read</p>

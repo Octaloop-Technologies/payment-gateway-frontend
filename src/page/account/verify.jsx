@@ -41,7 +41,7 @@ const Verify = () => {
           //   backgroundRepeat: "no-repeat",
           //   backgroundSize: "cover",
           // }}
-          className="w-[35%] py-5 2xl:py-11 px-5 2xl:px-12 flex flex-col gap-[30px] 2xl:gap-[62px] bg-[#cddadf] rounded-2xl "
+          className=" w-[90%] sm:w-[60%] lg:w-[38%] py-5 2xl:py-11 px-5 2xl:px-12 flex flex-col gap-[30px] 2xl:gap-[62px] bg-[#cddadf] rounded-2xl "
         >
           {/* Logo */}
           <img
@@ -63,7 +63,7 @@ const Verify = () => {
                 <label className="small text-gray font-semibold" htmlFor="">
                   Enter
                 </label>
-                <div className="flex items-center justify-start gap-[26px] w-full">
+                <div className="flex items-center  justify-center lg:justify-start gap-2.5 lg:gap-4 xl:gap-[24px] w-full">
                   {/* First Group of OTP Inputs */}
                   {[...Array(3)].map((_, index) => (
                     <input

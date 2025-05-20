@@ -25,7 +25,7 @@ const AdminSetting = () => {
   return (
     <>
       <div className="w-full flex flex-col gap-10 ">
-        <div className="flex gap-2 items-center">
+        <div className="flex  gap-2 items-center">
           <Icon
             icon="eva:arrow-back-outline"
             width="24"
@@ -39,7 +39,7 @@ const AdminSetting = () => {
         {/* Switcher */}
 
         {/* tabs */}
-        <div className="w-fit p-[5px] bg-[#e3ebef] bg-secondary switcher rounded-[10px] flex justify-between shadow-primary">
+        <div className="w-fit p-[5px] bg-[#e3ebef] bg-secondary switcher rounded-[10px] flex flex-col   justify-center  sm:flex-row md:justify-between shadow-primary">
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[165px] cursor-pointer ${
               currentTab === "Security"
@@ -53,7 +53,7 @@ const AdminSetting = () => {
             Security
           </p>
 
-          <p
+          {/* <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[165px]   cursor-pointer ${
               currentTab === "Roles"
                 ? "  bg-primary rounded-[8px] !text-white"
@@ -64,7 +64,7 @@ const AdminSetting = () => {
             }}
           >
             Roles & Permission
-          </p>
+          </p> */}
 
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
@@ -110,20 +110,20 @@ const AdminSetting = () => {
                 />
               </div>
 
-              <div className="mt-10 flex flex-col gap-3.5 pb-5 bprder-solid border-b-[1px] border-b-[gainsboro]">
+              <div className="mt-10 flex flex-col gap-3.5 pb-5 border-solid border-b-[1px] border-b-[gainsboro]">
                 <p className="large font-medium">Current Password</p>
 
-                <div className="flex gap-2 items-end">
+                <div className="flex flex-col md:flex-row gap-2 items-end">
                   <Input
                     type="password"
                     label="Password"
-                    wrapperClass="w-[316px]"
+                    wrapperClass=" w-full md:w-[316px]"
                     placeholder="Enter Password"
                     icon={true}
                   />
                   <Button
                     onClick={() => setIsUpdatePass(true)}
-                    text="Chnage Password"
+                    text="Change Password"
                     className="bg-primary rounded-lg w-[175px] text-white h-[43px] small font-semibold"
                   />
                 </div>
@@ -140,7 +140,7 @@ const AdminSetting = () => {
             <div className="p-[20px] flex flex-col gap-[38px]">
               <p className="medium font-bold">Payment & Transaction Settings</p>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Input
                   type="text"
                   label="Default Payment Gateway"
@@ -194,7 +194,7 @@ const AdminSetting = () => {
             <div className=" px-[20px] flex flex-col gap-[35px]">
               <p className="medium font-bold">User Roles & Permissions</p>
 
-              <div className="w-[650px] rounded-[10px]">
+              <div className=" w-full md:w-[650px] rounded-[10px]">
                 <div className="py-3 px-6 w-full rounded-solid rounded-t-xl  flex justify-between bg-red">
                   <p className="text-white small font-bold">
                     Notification Type

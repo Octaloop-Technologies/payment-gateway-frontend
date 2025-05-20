@@ -1,4 +1,3 @@
-
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import homeIcon from "../../assets/icons/homeWhite.svg";
@@ -15,7 +14,7 @@ const SideBar = ({ isOpen, setIsSidebarOpen }) => {
   const { pathname } = useLocation();
 
   const tablist = [
-   {
+    {
       id: 1,
       title: "Home",
       link: "/admin-home",
@@ -73,9 +72,11 @@ const SideBar = ({ isOpen, setIsSidebarOpen }) => {
         md:w-[229px] md:`}
     >
       <div
-        className={`flex flex-col h-full ${isOpen ? "visible" : "invisible"} md:visible`}
+        className={`flex flex-col h-full ${
+          isOpen ? "visible" : "invisible"
+        } md:visible`}
       >
-        <div className="bg-white shadow-primary h-full flex flex-col gap-4  " >
+        <div className="bg-white shadow-primary h-full flex flex-col gap-4  ">
           {/* logo */}
           <div className="flex p-[18.5px]">
             <img className="w-24 object-cover" src={logo} alt="logo" />
@@ -92,6 +93,11 @@ const SideBar = ({ isOpen, setIsSidebarOpen }) => {
                     isActive ? "bg-red text-white" : "text-black"
                   }`
                 }
+                onClick={() => {
+                  if (window.innerWidth < 992) {
+                    setIsSidebarOpen(false);
+                  }
+                }}
               >
                 <img
                   src={tab.icon}

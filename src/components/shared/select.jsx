@@ -30,7 +30,7 @@ const CustomSelect = ({
   return (
     <>
       <div
-        className={`select-wrapper flex flex-col  ${wrapperClasses}  ${error ? "error" : ""} `}
+        className={`select-wrapper bg-white flex flex-col  ${wrapperClasses}  ${error ? "error" : ""} `}
       >
         <label className={value ? "active" : "extra-small text-black font-medium"}> {label}</label>
         <Select

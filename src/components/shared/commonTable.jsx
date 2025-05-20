@@ -25,7 +25,7 @@ const CommonTable = ({
 
   const statusOptions = [
     { value: "Completed", label: "Completed" },
-    { value: "Failed", label: "Failed" },
+    { value: "delayed", label: "delayed" },
     { value: "Pending", label: "Pending" },
   ];
 
@@ -56,8 +56,8 @@ const CommonTable = ({
 
   return (
     <>
-      <div className="w-full flex flex-col gap-2.5 rounded-xl bg-white py-6 px-7 ">
-        <div className="flex  flex-col lg:flex-row w-full justify-between items-center  ">
+      <div className="w-full flex flex-col gap-2.5 rounded-xl  py-6 px-7 ">
+        <div className="flex  flex-col lg:flex-row w-full justify-between items-center   ">
           {heading && <p className="medium font-bold w-full">{heading}</p>}
 
           <div className="flex flex-col md:flex-row w-full justify-end gap-2 items-center">
@@ -120,19 +120,19 @@ const CommonTable = ({
 
         {/* Table */}
         <div>
-          <div className="flex flex-col">
+          <div className="flex flex-col overflow-x-auto ">
             <Table
               columns={columns}
               dataSource={filteredData}
               pagination={false} // Disable default pagination
               className="custom-table"
-              scroll={{x:800}}
+              // scroll={{x:800}}
             />
 
             {/* Custom Pagination with Text */}
             {ispagination && (
-              <div className="flex justify-between items-center mt-4">
-                <span className="small font-medium">
+              <div className="flex justify-between gap-4 items-center mt-4">
+                <span className="small font-medium whitespace-nowrap">
                   Showing 1 to 10 of 100 entries
                 </span>
                 <Pagination

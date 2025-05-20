@@ -67,7 +67,7 @@ const AdminNewCrypto = ({ isAdminNewCrypto, setIsAdminNewCrypto }) => {
               <Input
                 type="text"
                 label="Blockchain Type"
-                wrapperClass="w-full"
+                wrapperClass="w-full "
                 placeholder="Bitcoin"
               />
               <Input

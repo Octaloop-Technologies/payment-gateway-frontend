@@ -132,7 +132,12 @@ body {
 
 .ant-table-wrapper .ant-table-tbody > tr > td {
   font-weight: 500;
+  white-space: nowrap;
 }
+.ant-table-thead{
+  white-space: nowrap;
+}
+
 
 button {
   cursor: pointer;

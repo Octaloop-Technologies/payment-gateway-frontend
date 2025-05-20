@@ -19,12 +19,7 @@ const Login = () => {
         className="w-full min-h-screen h-full  flex items-center justify-center"
       >
         <div
-          // style={{
-          //   backgroundImage: `url(${grayBg})`,
-          //   backgroundRepeat: "no-repeat",
-          //   backgroundSize: "cover",
-          // }}
-          className="w-[35%] py-5 2xl:py-11 px-5 2xl:px-12 flex flex-col gap-[30px] 2xl:gap-[62px] bg-[#cddadf] rounded-2xl "
+          className=" w-[90%] sm:w-[50%]  lg:w-[35%] py-5 2xl:py-11 px-5 2xl:px-12 flex flex-col gap-[30px] 2xl:gap-[62px] bg-[#cddadf] rounded-2xl "
         >
           {/* Logo */}
           <img className="w-[150px] 2xl:w-[185px] object-cover mx-auto" src={logo} alt="" />

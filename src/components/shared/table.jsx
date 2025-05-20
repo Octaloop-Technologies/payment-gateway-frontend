@@ -120,7 +120,7 @@ const DataTable = ({
           )}
 
           {customFilter && (
-            <div className="catgory-wrapper flex gap-4 mt-5">
+            <div className=" flex gap-4 mt-5">
               <CustomSelect
                 label="Status"
                 placeholder="All"

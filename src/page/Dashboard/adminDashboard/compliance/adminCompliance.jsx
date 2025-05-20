@@ -41,7 +41,7 @@ const AdminCompliance = () => {
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {metricsData.map((metric, index) => (
             <KeyMetricsCard key={index} {...metric} />
           ))}

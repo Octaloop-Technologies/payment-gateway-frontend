@@ -77,7 +77,7 @@ const AdminTransaction = () => {
       user: "Uzair Ali",
       amount: "Lahore",
       method: "Unassigned",
-      status: "Failed",
+      status: "delayed",
       date: "02/15/2025",
       action: "View",
     },
