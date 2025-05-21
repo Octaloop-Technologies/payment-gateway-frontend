@@ -5,7 +5,12 @@ import TransactionSummery from "../../../../components/modals/transactionSummery
 
 const AdminTransaction = () => {
   const [isTransaction, setIsTransaction] = useState(false);
-
+  const TransactionMethodOptions = [
+    { value: "amazon", label: "Amazon" },
+    { value: "cashapp", label: "Cash App" },
+    { value: "applepay", label: "Apple Pay" },
+    { value: "mastercard", label: "Master Card" },
+  ];
   const columns = [
     {
       title: "Transaction ID",
@@ -101,6 +106,7 @@ const AdminTransaction = () => {
           dataSource={data}
           selectType={false}
           pagination={true}
+          // options={TransactionMethodOptions}
         />
       </div>
       <TransactionSummery

@@ -1,13 +1,23 @@
 @import "tailwindcss";
 /* fonts  */
-@font-face {
+/* @font-face {
   font-family: "Proxima Nova";
   src: url("/fonts/proxima-nova.woff2") format("woff2"),
     url("/fonts/proxima-nova.woff") format("woff"),
     url("/fonts/proxima-nova.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+} */ 
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/fonts/proxima-nova.woff2") format("woff2"),
+       url("/fonts/proxima-nova.woff") format("woff"),
+       url("/fonts/proxima-nova.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 @theme {
   /* Container Configuration */
@@ -79,14 +89,13 @@ body {
   }
 }
 
-
-body{
-  font-family: Proxima Nova;
-}
-@layer base {
-  body {
-    font-family: "Proxima Nova", sans-serif;
+body {
+    font-family: "Proxima Nova", sans-serif !important;
   }
+@layer base {
+  /* body {
+    font-family: "Proxima Nova", sans-serif;
+  } */
   ::-webkit-scrollbar {
     display: none;
   }

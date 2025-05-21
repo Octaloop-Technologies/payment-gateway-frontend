@@ -57,7 +57,7 @@ const appRouter = createBrowserRouter([
         path: "admin-home",
         children: [
           {
-            index: true, // Default child route for /admin-home
+            index: true, 
             element: <AdminHome />,
           },
         ],

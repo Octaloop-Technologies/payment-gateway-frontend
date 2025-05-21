@@ -89,7 +89,7 @@ const SideBar = ({ isOpen, setIsSidebarOpen }) => {
                 to={tab.link}
                 key={tab.id}
                 className={({ isActive }) =>
-                  `flex items-center gap-4 font-semibold text-base py-3 px-5 relative ${
+                  `flex items-center gap-4 font-semibold text-base py-3 px-5 relative  ${
                     isActive ? "bg-red text-white" : "text-black"
                   }`
                 }
@@ -98,6 +98,7 @@ const SideBar = ({ isOpen, setIsSidebarOpen }) => {
                     setIsSidebarOpen(false);
                   }
                 }}
+                
               >
                 <img
                   src={tab.icon}

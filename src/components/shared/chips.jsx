@@ -41,6 +41,12 @@ const Chips = ({ status }) => {
       bgClass: "bg-light-green",
       textClass: "text-black",
     },
+    inactive: {
+      label: "Inactive",
+      bgClass: "bg-light-pink",
+      textClass: "text-red",
+    },
+
     disabled: {
       label: "Disabled",
       bgClass: "bg-light-pink",

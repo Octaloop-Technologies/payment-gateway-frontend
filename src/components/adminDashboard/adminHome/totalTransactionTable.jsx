@@ -2,6 +2,9 @@ import React from "react";
 import CommonTable from "../../shared/commonTable";
 import Chips from "../../shared/chips";
 
+
+
+
 const TotalTransactionTable = () => {
   const columns = [
     {

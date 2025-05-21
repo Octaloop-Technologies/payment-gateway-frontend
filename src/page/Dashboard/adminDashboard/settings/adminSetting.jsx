@@ -8,6 +8,13 @@ import Roles from "../../../../components/adminDashboard/adminSetting/roles";
 import UpdatePayment from "../../../../components/modals/updatePayment";
 import { Switch } from "antd";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import CustomSelect from "../../../../components/shared/select";
+import AddAdminTable from "./addAdminTable";
+import RolebasedTable from "./rolebasedTable";
+import ActivitylogTable from "./activitylogTable";
+import TransactionLogTable from "./transactionLogTable";
+import CurrencyTable from "./currencyTable";
+
 
 const AdminSetting = () => {
   const [currentTab, setCurrentTab] = useState("Security");
@@ -22,6 +29,21 @@ const AdminSetting = () => {
   const onstateClick = (value) => {
     setCurrentTab(value);
   };
+
+  const TimezoneOptions = [
+    { value: "gmt-(utc)", label: "GMT-O(UTC)" },
+    { value: "gmt-o", label: "GMT-O to GMT+14" },
+    { value: "gmt-1", label: "GMT-1 to GMT+12" },
+  ];
+  const DateOptions = [{ value: "date", label: "DD/MM/YYYY+14" }];
+
+  const CurrencyOptions = [
+    { value: "usd", label: "USD" },
+    { value: "eur", label: "Eur" },
+    { value: "btc", label: "BTC" },
+    { value: "eth", label: "ETH" },
+    { value: "sol", label: "SOL" },
+  ];
   return (
     <>
       <div className="w-full flex flex-col gap-10 ">
@@ -39,7 +61,7 @@ const AdminSetting = () => {
         {/* Switcher */}
 
         {/* tabs */}
-        <div className="w-fit p-[5px] bg-[#e3ebef] bg-secondary switcher rounded-[10px] flex flex-col   justify-center  sm:flex-row md:justify-between shadow-primary">
+        <div className="w-fit p-[5px] bg-[#e3ebef] bg-secondary switcher rounded-[10px] flex   justify-center   flex-wrap md:justify-between shadow-primary">
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[165px] cursor-pointer ${
               currentTab === "Security"
@@ -66,7 +88,7 @@ const AdminSetting = () => {
             Roles & Permission
           </p> */}
 
-          <p
+          {/* <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
               currentTab === "Payment"
                 ? "  bg-primary rounded-[8px] !text-white"
@@ -77,7 +99,7 @@ const AdminSetting = () => {
             }}
           >
             Payment & Transaction
-          </p>
+          </p> */}
 
           <p
             className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
@@ -90,6 +112,81 @@ const AdminSetting = () => {
             }}
           >
             Notifications
+          </p>
+
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Currency"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Currency");
+            }}
+          >
+            Currency
+          </p>
+
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Time Zone & Localization"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Time Zone & Localization");
+            }}
+          >
+            Time Zone & Localization
+          </p>
+
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Language"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Language");
+            }}
+          >
+            Language
+          </p>
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Admin Management"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Admin Management");
+            }}
+          >
+            Admin Management
+          </p>
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Activity Logs & Audit"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Activity Logs & Audit");
+            }}
+          >
+            Activity Logs & Audit
+          </p>
+          <p
+            className={`text-[#A6A4A4] text-center font-semibold  small p-[12px] w-[200px]   cursor-pointer ${
+              currentTab === "Transaction Logs"
+                ? "  bg-primary rounded-[8px] !text-white"
+                : ""
+            }`}
+            onClick={() => {
+              onstateClick("Transaction Logs");
+            }}
+          >
+            Transaction Logs
           </p>
         </div>
 
@@ -192,7 +289,7 @@ const AdminSetting = () => {
 
           {currentTab === "Notifications" && (
             <div className=" px-[20px] flex flex-col gap-[35px]">
-              <p className="medium font-bold">User Roles & Permissions</p>
+              <p className="medium font-bold">Notifications</p>
 
               <div className=" w-full md:w-[650px] rounded-[10px]">
                 <div className="py-3 px-6 w-full rounded-solid rounded-t-xl  flex justify-between bg-red">
@@ -221,6 +318,155 @@ const AdminSetting = () => {
               </div>
             </div>
           )}
+
+          {currentTab === "Currency" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white p-5 rounded-[12px]">
+              <p className="medium font-bold">CURRENCY SETTINGS</p>
+
+              <div className="flex  items-center gap-2 ">
+                <div>
+                  <CustomSelect
+                    label={"Select Default Currency"}
+                    placeholder={"USD"}
+                    wrapperClasses={" min-w-[200px] md:min-w-[481px]"}
+                    options={CurrencyOptions}
+                  />
+                </div>
+                <div className="border-1 border-[#247BA0] rounded-[8px] w-[82px] h-[38px] flex items-center justify-center mt-4">
+                  <Switch defaultChecked onChange={onChange} />
+                </div>
+              </div>
+
+              <CurrencyTable/>
+            </div>
+          )}
+          {currentTab === "Time Zone & Localization" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white p-5 rounded-[12px]">
+              <p className="medium font-bold">TIME ZONE & LOCALIZATION</p>
+              <div className="flex flex-col gap-4">
+                <p className="font-semibold text-sm font-[Proxima Nova] ">
+                  Time Zone Settings
+                </p>
+
+                <CustomSelect
+                  label={"Default Platform Time Zone"}
+                  placeholder={"GMT+0 (UTC)"}
+                  wrapperClasses={"max-w-[507px]"}
+                  options={TimezoneOptions}
+                />
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <p className="font-semibold text-sm font-[Proxima Nova] ">
+                  Localization Options
+                </p>
+
+                <CustomSelect
+                  label={"Date Format"}
+                  placeholder={"MM/DD/YYYY"}
+                  wrapperClasses={"max-w-[507px]"}
+                  options={DateOptions}
+                />
+              </div>
+
+              <div className="flex  gap-20">
+                <div>
+                  <p className="text-xs font-normal  -mb-2 ">
+                    Currency Symbol Format
+                  </p>
+                  <div className="border-1 border-[#247BA0] rounded-[8px] w-[82px] h-[38px] flex items-center justify-center mt-4">
+                    <Switch defaultChecked onChange={onChange} />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-normal  -mb-2">
+                    {" "}
+                    Number Formatting
+                  </p>
+                  <div className="border-1 border-[#247BA0] rounded-[8px] w-[82px] h-[38px] flex items-center justify-center mt-4">
+                    <Switch defaultChecked onChange={onChange} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {currentTab === "Language" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white py-12 rounded-[12px]">
+              <p className="medium font-bold">LANGUAGE SETTINGS</p>
+              <div className="flex  items-center gap-14 ">
+                <div>
+                  <CustomSelect
+                    label={"Default Platform Language"}
+                    placeholder={"English 🇬🇧"}
+                    wrapperClasses={" min-w-[120px] sm:min-w-[481px]"}
+                    options={CurrencyOptions}
+                  />
+                </div>
+                <div className="border-1 border-[#247BA0] rounded-[8px] w-[82px] h-[38px] flex items-center justify-center mt-4">
+                  <Switch defaultChecked onChange={onChange} />
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row gap-3">
+                <Button
+                  onClick={() => {}}
+                  text="Upload New Language Filecy"
+                  className="bg-primary rounded-lg  text-white    h-[43px] small font-semibold w-[211px]"
+                />
+                <Button
+                  onClick={() => {}}
+                  text="Edit Existing Language"
+                  className="bg-primary rounded-lg  text-white   h-[43px] small font-semibold w-[211px]"
+                />
+                <Button
+                  onClick={() => {}}
+                  text="Delete Translation File"
+                  className="bg-light-pink  rounded-lg  text-[#CF1742]   h-[43px] small font-semibold w-[211px]"
+                />
+              </div>
+            </div>
+          )}  
+
+
+           {currentTab === "Admin Management" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white py-12 rounded-[12px]">
+              <p className="medium font-bold">ADMIN MANAGEMENT</p>
+             
+                <AddAdminTable/>
+                <RolebasedTable/>
+            </div>
+          )} 
+
+             {currentTab === "Activity Logs & Audit" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white py-12 rounded-[12px]">
+              <p className="medium font-bold"> ACTIVITY LOGS & AUDIT TRAILS</p>
+              <ActivitylogTable/>
+             
+                
+            </div>
+          )} 
+
+
+           {currentTab === "Transaction Logs" && (
+            <div className=" px-[20px] flex flex-col gap-[35px] bg-white py-12 rounded-[12px]">
+              <p className="medium font-bold"> TRANSACTION LOGS</p>
+              <div>
+                  <h2 className=" text-sm font-semibold"> Payment & Transaction</h2>
+                  <div className=" grid grid-cols-1 md:grid-cols-2 gap-8  ">
+                   
+                     <Input label={'Default Payment Gateway'} placeholder={'Stripe'} wrapperClass="max-w-[481px]" />
+                    <Input label={'Processing Fee (Fiat)'} placeholder={'2.5%'}  wrapperClass="max-w-[481px]" />
+                     <Input label={'Processing Fee (Crypto)'} placeholder={'1%'}   wrapperClass="max-w-[481px]"/>
+                      <Input label={'Minimum Withdrawal Limit'} placeholder={'10%'}   wrapperClass="max-w-[481px]"/>
+                       <Input label={'Refund Policy'} placeholder={'7%'}   wrapperClass="max-w-[481px]"/>
+                   </div>
+                  
+<TransactionLogTable/>
+              </div>
+             
+                
+            </div>
+          )} 
         </div>
       </div>
 
